@@ -1,5 +1,11 @@
 {
   "title": "Users",
+  "toolbarConfig": {
+    "backgroundColor": "bg-green-100"
+  },
+  "columnConfig": {
+    "backgroundColor": "bg-red-100"
+  },
   "columns": [
     {
       "key": "title",
@@ -19,6 +25,12 @@
       "sortable": true
     }
   ],
+  "rowConfig": {
+    "backgroundColor": {
+        "even": "bg-white-50",
+        "odd": "bg-slate-25"
+      }
+  },
   "rows": [
     ["Mr", "Bob", "Smith"],
     ["Mr", "Rick", "Big"],

@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Inter', system_ui, sans-serif;
+}
+
+/* Ultra-compact table */
+.compact-table th,
+.compact-table td {
+  font-size: 0.61rem;
+  line-height: 1rem;
+}
+
+.compact-table thead th {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.compact-table tbody td {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
