@@ -1,4 +1,5 @@
 {
+  "title": "Users",
   "columns": [
     {
       "key": "title",
@@ -28,5 +29,4 @@
     "key": "lastName",
     "direction": "asc"
   },
-  "rowOptions": [10, 25, 50, 100, 0]
-}
+  "rowOptions": [10, 25, 50,
