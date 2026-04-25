@@ -15,6 +15,8 @@ export default function BuildTable({ dataset }) {
 
   const evenBgClass = dataset.rowConfig?.backgroundColor?.even || ''
   const oddBgClass = dataset.rowConfig?.backgroundColor?.odd || ''
+  const toolbarBgClass = dataset.toolbarConfig?.backgroundColor || 'bg-slate-50'
+  const theadBgClass = dataset.columnConfig?.backgroundColor || 'bg-slate-50'
 
   const [globalFilter, setGlobalFilter] = useState(dataset.globalFilter || '')
   const [sortConfig, setSortConfig] = useState(dataset.sortConfig || { key: null, direction: 'asc' })
@@ -121,13 +123,13 @@ export default function BuildTable({ dataset }) {
   return (
     <div className="w-full table-container border border-slate-200 rounded-3xl overflow-hidden bg-white shadow-xl">
       {/* Global Filter Row: 3-column layout */}
-      <div className="p-1 border-b border-slate-200 bg-slate-50 flex items-center gap-4">
+      <div className={`p-1 border-b border-slate-200 ${toolbarBgClass} flex items-center gap-4`}>
         {/* LHS Column: Dropdown + Row Count (left-justified) */}
         <div className="flex items-center gap-3 flex-none">
           <select
             value={rowsPerPage}
             onChange={handleRowsPerPageChange}
-            className="px-3 py-1 border border-slate-300 rounded-xl border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-400 transition-all min-w-[80px]"
+            className="px-3 py-1 border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all min-w-[80px]"
           >
             {rowOptions.map((option) => (
               <option key={option} value={option}>
@@ -155,7 +157,7 @@ export default function BuildTable({ dataset }) {
         <div className="flex-1 flex items-center ml-4">
           <input
             type="text"
-            placeholder="Search... (use ; between terms)"
+            placeholder="Search all columns (use ; for multiple terms)"
             className="flex-1 px-4 py-1 border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
             value={globalFilter}
             onChange={(e) => setGlobalFilter(e.target.value)}
@@ -164,7 +166,7 @@ export default function BuildTable({ dataset }) {
       </div>
 
       <table className="compact-table w-full">
-        <thead className="bg-slate-50">
+        <thead className={theadBgClass}>
           <tr>
             {dataset.columns.map((col) => (
               <th
