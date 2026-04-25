@@ -11,6 +11,8 @@ export default function BuildTable({ dataset }) {
     })
   }, [dataset])
 
+  const totalRows = rawData.length
+
   const [globalFilter, setGlobalFilter] = useState(dataset.globalFilter || '')
   const [sortConfig, setSortConfig] = useState(dataset.sortConfig || { key: null, direction: 'asc' })
   const [rowsPerPage, setRowsPerPage] = useState(25)
@@ -104,9 +106,7 @@ export default function BuildTable({ dataset }) {
     }
   }
 
-  const startRow = (currentPage - 1) * rowsPerPage + 1
-  const endRow = rowsPerPage === 0 ? totalFiltered : Math.min(currentPage * rowsPerPage, totalFiltered)
-  const rowCountText = totalFiltered === 0 ? '' : `Showing ${startRow}-${endRow} of ${totalFiltered} rows`
+  const rowCountText = totalFiltered === 0 ? '' : `Rows ${totalFiltered} of ${totalRows}`
 
   const getSortIcon = (colKey) => {
     if (sortConfig.key !== colKey) return ''
@@ -132,6 +132,13 @@ export default function BuildTable({ dataset }) {
           ))}
         </select>
 
+        {/* Row counts - now LHS of search input */}
+        {totalFiltered > 0 && (
+          <div className="text-sm text-slate-500 whitespace-nowrap px-3 py-1.5 bg-slate-100 rounded-xl">
+            {rowCountText}
+          </div>
+        )}
+
         {/* Search Input */}
         <input
           type="text"
@@ -140,13 +147,6 @@ export default function BuildTable({ dataset }) {
           value={globalFilter}
           onChange={(e) => setGlobalFilter(e.target.value)}
         />
-
-        {/* RHS: Row counts */}
-        {totalFiltered > 0 && (
-          <div className="text-sm text-slate-500 whitespace-nowrap px-3 py-1.5 bg-slate-100 rounded-xl">
-            {rowCountText}
-          </div>
-        )}
       </div>
 
       <table className="compact-table w-full">
