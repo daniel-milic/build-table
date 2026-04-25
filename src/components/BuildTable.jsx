@@ -121,7 +121,7 @@ export default function BuildTable({ dataset }) {
   const rowOptions = dataset.rowOptions || [10, 25, 50, 100, 0]
 
   return (
-    <div className="w-full table-container border border-slate-200 rounded-3xl overflow-hidden bg-white shadow-xl">
+    <div className="w-full table-container border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-xl">
       {/* Global Filter Row: 3-column layout */}
       <div className={`p-1 border-b border-slate-200 ${toolbarBgClass} flex items-center gap-4`}>
         {/* LHS Column: Dropdown + Row Count (left-justified) */}
@@ -129,7 +129,7 @@ export default function BuildTable({ dataset }) {
           <select
             value={rowsPerPage}
             onChange={handleRowsPerPageChange}
-            className="px-3 py-1 border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all min-w-[80px]"
+            className="px-3 py-1 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all min-w-[80px]"
           >
             {rowOptions.map((option) => (
               <option key={option} value={option}>
@@ -138,7 +138,7 @@ export default function BuildTable({ dataset }) {
             ))}
           </select>
           {totalFiltered > 0 && (
-            <div className="text-slate-500 whitespace-nowrap px-3 py-0.5 bg-slate-100 rounded-xl">
+            <div className="text-slate-500 whitespace-nowrap px-3 py-0.5 bg-slate-100 rounded-lg">
               {rowCountText}
             </div>
           )}
@@ -147,7 +147,7 @@ export default function BuildTable({ dataset }) {
         {/* Center Column: Title (centered) */}
         <div className="flex-1 flex justify-center items-center">
           {dataset.title && (
-            <div className="text-lg font-bold text-slate-800 whitespace-nowrap px-3 py-0.5 bg-slate-100 rounded-xl">
+            <div className="text-lg font-bold text-slate-800 whitespace-nowrap px-3 py-0.5 bg-slate-100 rounded-lg">
               {dataset.title}
             </div>
           )}
@@ -158,7 +158,7 @@ export default function BuildTable({ dataset }) {
           <input
             type="text"
             placeholder="Search all columns (use ; for multiple terms)"
-            className="flex-1 px-4 py-1 border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            className="flex-1 px-4 py-1 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
             value={globalFilter}
             onChange={(e) => setGlobalFilter(e.target.value)}
           />
@@ -171,7 +171,7 @@ export default function BuildTable({ dataset }) {
             {dataset.columns.map((col) => (
               <th
                 key={col.key}
-                className={`px-3 py-2.5 font-semibold text-slate-700 text-left cursor-pointer hover:bg-slate-100 transition-colors first:rounded-tl-xl last:rounded-tr-xl ${
+                className={`px-3 py-2.5 font-semibold text-slate-700 text-left cursor-pointer hover:bg-slate-100 transition-colors first:rounded-tl-lg last:rounded-tr-lg ${
                   col.align === 'center' ? 'text-center' : ''
                 }`}
                 style={col.width ? { width: col.width } : {}}
@@ -231,7 +231,7 @@ export default function BuildTable({ dataset }) {
           <button
             onClick={handlePrevPage}
             disabled={currentPage === 1}
-            className="px-4 py-2 border border-slate-300 rounded-xl text-sm font-medium bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="px-4 py-2 border border-slate-300 rounded-lg text-sm font-medium bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             Previous
           </button>
@@ -241,7 +241,7 @@ export default function BuildTable({ dataset }) {
           <button
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 border border-slate-300 rounded-xl text-sm font-medium bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="px-4 py-2 border border-slate-300 rounded-lg text-sm font-medium bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             Next
           </button>
