@@ -13,6 +13,9 @@ export default function BuildTable({ dataset }) {
 
   const totalRows = rawData.length
 
+  const evenBgClass = dataset.rowConfig?.backgroundColor?.even || ''
+  const oddBgClass = dataset.rowConfig?.backgroundColor?.odd || ''
+
   const [globalFilter, setGlobalFilter] = useState(dataset.globalFilter || '')
   const [sortConfig, setSortConfig] = useState(dataset.sortConfig || { key: null, direction: 'asc' })
   const [rowsPerPage, setRowsPerPage] = useState(25)
@@ -195,24 +198,27 @@ export default function BuildTable({ dataset }) {
               </td>
             </tr>
           ) : (
-            paginatedData.map((row, rowIndex) => (
-              <tr
-                key={rowIndex}
-                className="border-t border-slate-100 hover:bg-slate-50/50 transition-colors"
-              >
-                {dataset.columns.map((col) => (
-                  <td
-                    key={col.key}
-                    className={`px-3 py-2 text-slate-900 first:pl-4 last:pr-4 ${
-                      col.align === 'center' ? 'text-center' : ''
-                    }`}
-                    style={col.width ? { width: col.width } : {}}
-                  >
-                    {row[col.key] || ''}
-                  </td>
-                ))}
-              </tr>
-            ))
+            paginatedData.map((row, rowIndex) => {
+              const rowBgClass = rowIndex % 2 === 0 ? evenBgClass : oddBgClass
+              return (
+                <tr
+                  key={rowIndex}
+                  className={`${rowBgClass} border-t border-slate-100 hover:bg-slate-50/50 transition-colors`}
+                >
+                  {dataset.columns.map((col) => (
+                    <td
+                      key={col.key}
+                      className={`px-3 py-2 text-slate-900 first:pl-4 last:pr-4 ${
+                        col.align === 'center' ? 'text-center' : ''
+                      }`}
+                      style={col.width ? { width: col.width } : {}}
+                    >
+                      {row[col.key] || ''}
+                    </td>
+                  ))}
+                </tr>
+              )
+            })
           )}
         </tbody>
       </table>
