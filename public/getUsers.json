@@ -29,4 +29,5 @@
     "key": "lastName",
     "direction": "asc"
   },
-  "rowOptions": [10, 25, 50,
+  "rowOptions": [10, 25, 50, 100, 0]
+}
