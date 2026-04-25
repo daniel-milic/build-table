@@ -1,16 +1,31 @@
-# React + Vite
+[![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://img.shields.io/npm/v/build-table.svg)](https://www.npmjs.com/package/build-table)
+![GitHub Repo stars](https://img.shields.io/github/stars/YOUR_USERNAME/build-table?style=social)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# BuildTable - React Data Table Component
 
-Currently, two official plugins are available:
+A lightweight, production-ready **React data table** with sorting, pagination, global search, and full customization. Fetches JSON data via API proxy. Perfect for dashboards, admin panels, and data-heavy UIs.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- 🔍 **Global Search**: Multi-term (`;`) across all columns
+- 📊 **Sorting**: Click headers (asc/desc)
+- 📱 **Pagination**: Rows-per-page (10/25/50/All), prev/next
+- 🎨 **Customizable**: Titles, colors, widths, alignment via props
+- ⚡ **Fast**: Vite HMR, Tailwind CSS
+- 🚀 **States**: Loading spinner, error handling, empty results
+- 📱 **Responsive**: Mobile-optimized compact table
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📱 Screenshots
 
-## Expanding the ESLint configuration
+![Hero Screenshot](./src/assets/hero.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Desktop | Mobile |
+|---------|--------|
+| ![Desktop](./src/assets/hero.png) | *(Compact table stacks well)* |
+
+## 🚀 Quick Start
+
