@@ -21,11 +21,8 @@ A lightweight, production-ready **React data table** with sorting, pagination, g
 
 ## 📱 Screenshots
 
-![Hero Screenshot](./src/assets/hero.png)
+![Screenshot](./screenshots/table.png)
 
-| Desktop | Mobile |
-|---------|--------|
-| ![Desktop](./src/assets/hero.png) | *(Compact table stacks well)* |
 
 ## 🚀 Quick Start
 

@@ -157,7 +157,7 @@ export default function BuildTable({ dataset }) {
         <div className="flex-1 flex items-center ml-4">
           <input
             type="text"
-            placeholder="Search all columns (use ; for multiple terms)"
+            placeholder="Search... (use ; for multiple terms)"
             className="flex-1 px-4 py-1 border border-slate-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
             value={globalFilter}
             onChange={(e) => setGlobalFilter(e.target.value)}
