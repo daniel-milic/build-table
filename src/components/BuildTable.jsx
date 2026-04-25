@@ -124,7 +124,7 @@ export default function BuildTable({ dataset }) {
           <select
             value={rowsPerPage}
             onChange={handleRowsPerPageChange}
-            className="px-3 py-1 border border-slate-300 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all min-w-[80px]"
+            className="px-3 py-1 border border-slate-300 rounded-xl border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all min-w-[80px]"
           >
             {rowOptions.map((option) => (
               <option key={option} value={option}>
@@ -133,7 +133,7 @@ export default function BuildTable({ dataset }) {
             ))}
           </select>
           {totalFiltered > 0 && (
-            <div className="text-sm text-slate-500 whitespace-nowrap px-3 py-0.5 bg-slate-100 rounded-xl">
+            <div className="text-slate-500 whitespace-nowrap px-3 py-0.5 bg-slate-100 rounded-xl">
               {rowCountText}
             </div>
           )}
@@ -153,7 +153,7 @@ export default function BuildTable({ dataset }) {
           <input
             type="text"
             placeholder="Search all columns (use ; for multiple terms)"
-            className="flex-1 px-4 py-1 border border-slate-300 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            className="flex-1 px-4 py-1 border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
             value={globalFilter}
             onChange={(e) => setGlobalFilter(e.target.value)}
           />
