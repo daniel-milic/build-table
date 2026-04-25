@@ -117,43 +117,47 @@ export default function BuildTable({ dataset }) {
 
   return (
     <div className="w-full table-container border border-slate-200 rounded-3xl overflow-hidden bg-white shadow-xl">
-      {/* Global Filter Row with Dropdown, Search, and Counts */}
-      <div className="p-4 border-b border-slate-200 bg-slate-50 flex items-center gap-3">
-        {/* LHS: Rows per page dropdown */}
-        <select
-          value={rowsPerPage}
-          onChange={handleRowsPerPageChange}
-          className="px-3 py-2 border border-slate-300 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all min-w-[80px]"
-        >
-          {rowOptions.map((option) => (
-            <option key={option} value={option}>
-              {option === 0 ? 'All' : option}
-            </option>
-          ))}
-        </select>
+      {/* Global Filter Row: 3-column layout */}
+      <div className="p-4 border-b border-slate-200 bg-slate-50 flex items-center gap-6">
+        {/* LHS Column: Dropdown + Row Count (left-justified) */}
+        <div className="flex items-center gap-3 flex-none">
+          <select
+            value={rowsPerPage}
+            onChange={handleRowsPerPageChange}
+            className="px-3 py-2 border border-slate-300 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all min-w-[80px]"
+          >
+            {rowOptions.map((option) => (
+              <option key={option} value={option}>
+                {option === 0 ? 'All' : option}
+              </option>
+            ))}
+          </select>
+          {totalFiltered > 0 && (
+            <div className="text-sm text-slate-500 whitespace-nowrap px-3 py-1.5 bg-slate-100 rounded-xl">
+              {rowCountText}
+            </div>
+          )}
+        </div>
 
-        {/* Row counts - now LHS of search input */}
-        {totalFiltered > 0 && (
-          <div className="text-sm text-slate-500 whitespace-nowrap px-3 py-1.5 bg-slate-100 rounded-xl">
-            {rowCountText}
-          </div>
-        )}
+        {/* Center Column: Title (centered) */}
+        <div className="flex-1 flex justify-center items-center">
+          {dataset.title && (
+            <div className="text-lg font-bold text-slate-800 whitespace-nowrap px-3 py-1.5 bg-slate-100 rounded-xl">
+              {dataset.title}
+            </div>
+          )}
+        </div>
 
-        {/* Title */}
-        {dataset.title && (
-          <div className="text-lg font-bold text-slate-800 whitespace-nowrap px-3 py-1.5 bg-slate-100 rounded-xl">
-            {dataset.title}
-          </div>
-        )}
-
-        {/* Search Input */}
-        <input
-          type="text"
-          placeholder="Search all columns (use ; for multiple terms)"
-          className="flex-1 px-4 py-2.5 border border-slate-300 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-          value={globalFilter}
-          onChange={(e) => setGlobalFilter(e.target.value)}
-        />
+        {/* RHS Column: Search Input (left-justified, fills space) */}
+        <div className="flex-1 flex items-center ml-4">
+          <input
+            type="text"
+            placeholder="Search all columns (use ; for multiple terms)"
+            className="flex-1 px-4 py-2.5 border border-slate-300 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            value={globalFilter}
+            onChange={(e) => setGlobalFilter(e.target.value)}
+          />
+        </div>
       </div>
 
       <table className="compact-table w-full">
