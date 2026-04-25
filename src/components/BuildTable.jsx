@@ -113,7 +113,7 @@ export default function BuildTable({ dataset }) {
     return sortConfig.direction === 'asc' ? ' ↑' : ' ↓'
   }
 
-  const rowOptions = [10, 25, 50, 100, 0]
+  const rowOptions = dataset.rowOptions || [10, 25, 50, 100, 0]
 
   return (
     <div className="w-full table-container border border-slate-200 rounded-3xl overflow-hidden bg-white shadow-xl">
