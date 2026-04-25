@@ -117,13 +117,6 @@ export default function BuildTable({ dataset }) {
 
   return (
     <div className="w-full table-container border border-slate-200 rounded-3xl overflow-hidden bg-white shadow-xl">
-      {/* Title */}
-      {dataset.title && (
-        <div className="p-6 text-center border-b border-slate-200 bg-slate-50">
-          <h2 className="text-2xl font-bold text-slate-800">{dataset.title}</h2>
-        </div>
-      )}
-
       {/* Global Filter Row with Dropdown, Search, and Counts */}
       <div className="p-4 border-b border-slate-200 bg-slate-50 flex items-center gap-3">
         {/* LHS: Rows per page dropdown */}
@@ -143,6 +136,13 @@ export default function BuildTable({ dataset }) {
         {totalFiltered > 0 && (
           <div className="text-sm text-slate-500 whitespace-nowrap px-3 py-1.5 bg-slate-100 rounded-xl">
             {rowCountText}
+          </div>
+        )}
+
+        {/* Title */}
+        {dataset.title && (
+          <div className="text-lg font-bold text-slate-800 whitespace-nowrap px-3 py-1.5 bg-slate-100 rounded-xl">
+            {dataset.title}
           </div>
         )}
 
